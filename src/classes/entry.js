@@ -21,7 +21,11 @@ class Entry {
         title.className = "entry-title"
         entryDiv.appendChild(title)
 
-        // Add Comment Button
+        // Comment Container
+        commentsDiv = document.createElement("div")
+        commentsDiv.className = "entry-comment-container"
+        commentDiv.id = `entry-${this.id}-comment-container`
+        entryDiv.appendChild(commentDiv)
 
         // Delete Button
         const deleteBtn = document.createElement("button")
