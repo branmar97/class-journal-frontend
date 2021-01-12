@@ -1,1 +1,1 @@
-const api = new ApiAdapter()
+new Entries()
