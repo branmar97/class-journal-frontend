@@ -20,5 +20,18 @@ class Entry {
         const title = document.createElement("h3")
         title.className = "entry-title"
         entryDiv.appendChild(title)
+
+        // Add Comment Button
+
+        // Delete Button
+        const deleteBtn = document.createElement("button")
+        deleteBtn.setAttribute("id", `delete-button-${this.id}`)
+        deleteBtn.innerHTML = "Delete"
+        entryDiv.appendChild(deleteBtn)
+
+        deleteBtn.addEventListener("click", () => {
+            entryDiv.remove()
+            this.adapter.deleteEntry(`${this.id}`)
+        })
     }
 }
