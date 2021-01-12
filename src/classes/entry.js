@@ -39,7 +39,13 @@ class Entry {
         newCommentForm.id = `new-${this.id}-comment-form`
         newCommentDiv.appendChild(newCommentForm)
 
-        newCommentText = document.createElement("input")
+        newCommentAuthor = document.createElement("input")
+        newCommentAuthor.id = "new-comment-author"
+        newCommentAuthor.type = "text"
+        newCommentAuthor.setAttribute("placeholder", "Your message here")
+        newCommentForm.appendChild(newCommentAuthor)
+
+        newCommentText = document.createElement("textarea")
         newCommentText.id = "new-comment-text"
         newCommentText.type = "text"
         newCommentText.setAttribute("placeholder", "Your message here")
@@ -51,7 +57,7 @@ class Entry {
         newCommentForm.appendChild(newCommentBtn)
 
         newCommentBtn.addEventListener("click", () => {
-            
+
         })
 
         // Delete Button
