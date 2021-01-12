@@ -2,6 +2,8 @@ class Entries {
     constructor() {
         this.entries = [];
         this.adapter = new ApiAdapter()
+        this.newEntryBindings()
+        this.fetchAndLoadEntries()
     }
 
     newEntryBindings() {
