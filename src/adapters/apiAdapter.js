@@ -1,6 +1,6 @@
 class ApiAdapter {
     constructor() {
-        this.root = root
+        this.root = "http://localhost:3000"
     }
 
     getEntry(id) {
@@ -18,7 +18,7 @@ class ApiAdapter {
             text: entryText
         }
 
-        return fetch(this.baseUrl, {
+        return fetch(this.root + "/entries", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
