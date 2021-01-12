@@ -1,1 +1,1 @@
-const api = new ApiAdapter("http://localhost:3000")
+const api = new ApiAdapter()
