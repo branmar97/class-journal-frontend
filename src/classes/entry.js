@@ -27,6 +27,12 @@ class Entry {
         commentDiv.id = `entry-${this.id}-comment-container`
         entryDiv.appendChild(commentDiv)
 
+        // New Comment Container
+        newCommentDiv = document.createElement("div")
+        newCommentDiv.className = "new-comment-container"
+        newCommentDiv.id = `new-${this.id}-comment-container`
+        commentsDiv.appendChild(newCommentDiv)
+
         // Delete Button
         const deleteBtn = document.createElement("button")
         deleteBtn.setAttribute("id", `delete-button-${this.id}`)
