@@ -33,6 +33,27 @@ class Entry {
         newCommentDiv.id = `new-${this.id}-comment-container`
         commentsDiv.appendChild(newCommentDiv)
 
+        // New Comment Form
+        newCommentForm = document.createElement("form")
+        newCommentForm.className = "new-comment-form"
+        newCommentForm.id = `new-${this.id}-comment-form`
+        newCommentDiv.appendChild(newCommentForm)
+
+        newCommentText = document.createElement("input")
+        newCommentText.id = "new-comment-text"
+        newCommentText.type = "text"
+        newCommentText.setAttribute("placeholder", "Your message here")
+        newCommentForm.appendChild(newCommentText)
+
+        newCommentBtn = document.createElement("button")
+        newCommentBtn.id = `new-comment-button-${this.id}`)
+        newCommentBtn.innerHTML = "Add Comment"
+        newCommentForm.appendChild(newCommentBtn)
+
+        newCommentBtn.addEventListener("click", () => {
+            
+        })
+
         // Delete Button
         const deleteBtn = document.createElement("button")
         deleteBtn.setAttribute("id", `delete-button-${this.id}`)
