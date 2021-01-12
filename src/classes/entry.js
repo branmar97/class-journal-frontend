@@ -9,5 +9,10 @@ class Entry {
 
     renderEntry() {
         const entriesContainer = document.getElementById("entries-container")
+
+        // Build Entry Div
+        const entryDiv = document.createElement("div")
+        entryDiv.className = "entry-container"
+        entriesContainer.appendChild(entryDiv)
     }
 }
