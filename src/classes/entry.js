@@ -61,8 +61,13 @@ class Entry {
         newCommentBtn.innerHTML = "Add Comment"
         newCommentForm.appendChild(newCommentBtn)
 
-        newCommentBtn.addEventListener("click", () => {
+        newCommentBtn.addEventListener("click", (event) => {
+            event.preventDefault()
+            commentEntry = document.getElementById(`new-${this.id}-comment-entry`).value
+            commentAuthor = document.getElementById(`new-${this.id}-comment-author`).value
+            commentText = document.getElementById(`new-${this.id}-comment-text`).value
 
+            
         })
 
         // Delete Button
