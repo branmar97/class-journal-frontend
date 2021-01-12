@@ -30,6 +30,16 @@ class ApiAdapter {
         .catch(error => console.log("Error: " + error))
     }
 
+    deleteEntry(id) {
+        return fetch(this.root + `/entries/${id}`, {
+            method: 'DELETE',
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            }
+        })
+    }
+
     getComments() {
         fetch(this.root + "/comments").then(res => res.json())
     }
