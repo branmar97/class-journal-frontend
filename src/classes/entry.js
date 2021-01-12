@@ -26,7 +26,23 @@ class Entry {
         commentsDiv = document.createElement("div")
         commentsDiv.className = "entry-comment-container"
         commentDiv.id = `entry-${this.id}-comment-container`
+        commentsDiv.style.display = "none"
+
+        // Show/Hide Comments
+        showCommentsBtn = document.createElement("button")
+        showCommentsBtn.id = `entry-show-button-${this.id}`
+        showCommentsBtn.innerHTML = "Comments"
+        showCommentsBtn.setAttribute("onclick", showHideComments())
+        entryDiv.appendChild(showCommentsBtn)
         entryDiv.appendChild(commentDiv)
+
+        showHideComments() {
+            if (commentsDiv.style.display === "none") {
+                commentsDiv.style.display = "block"
+            } else {
+                commentsDiv.style.display = "none"
+            }
+        }
 
         // New Comment Container
         newCommentDiv = document.createElement("div")
@@ -58,7 +74,7 @@ class Entry {
         newCommentForm.appendChild(newCommentText)
 
         newCommentBtn = document.createElement("button")
-        newCommentBtn.id = `new-comment-button-${this.id}`)
+        newCommentBtn.id = `new-comment-button-${this.id}`
         newCommentBtn.innerHTML = "Add Comment"
         newCommentForm.appendChild(newCommentBtn)
 
