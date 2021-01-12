@@ -13,6 +13,12 @@ class Entry {
         // Build Entry Div
         const entryDiv = document.createElement("div")
         entryDiv.className = "entry-container"
+        entryDiv.id = `entry-${this.id}-container`
         entriesContainer.appendChild(entryDiv)
+
+        // Entry Title
+        const title = document.createElement("h3")
+        title.className = "entry-title"
+        entryDiv.appendChild(title)
     }
 }
