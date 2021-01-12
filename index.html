@@ -8,10 +8,40 @@
 </head>
 <body>
     <div class="container">
-        <div class="m-5">
+        <div class="m-5 page-header">
             <h1 class="text-center">Class Journal</h1>
-            <p class="text-center">Share your thoughts with the class</p>
+            <p class="text-center">A digital time capsule.</p>
         </div>
+
+        <section id="entries-container">
+            <h2>Journal Entries</h2>
+        </section>
+
+        <section id="new-entry-container">
+            <form id="new-entry-form" class="mb-6">
+                <div class="mb-3">
+                    <h4>Create New Entry</h4>
+                    <p>Share what's on your mind.</p>
+                </div>
+
+                <div class="mb-3">
+                    <label for="entry-title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="entry-title" placeholder="Entry Title">
+                </div>
+
+                <div class="mb-3">
+                    <label for="entry-author" class="form-label">Author</label>
+                    <input type="text" class="form-control" id="entry-author" placeholder="Your Name">
+                </div>
+
+                <div class="mb-3">
+                    <label for="entry-text" class="form-label">Entry</label>
+                    <textarea type="text" class="form-control" id="entry-text" placeholder="Share your thoughts here"></textarea>
+                </div>
+
+                <button class="btn btn-success" type="submit">Add Game</button>
+            </form>
+        </section>
     </div>
 </body>
 </html>
