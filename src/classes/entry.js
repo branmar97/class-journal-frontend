@@ -5,6 +5,7 @@ class Entry {
         this.author = entry.author 
         this.text = entry.text
         this.comments = entry.comments
+        this.adapter = new ApiAdapter()
     }
 
     renderEntry() {
@@ -67,7 +68,14 @@ class Entry {
             commentAuthor = document.getElementById(`new-${this.id}-comment-author`).value
             commentText = document.getElementById(`new-${this.id}-comment-text`).value
 
-            
+            this.adapter.createComment(commentEntry, commentAuthor, commentText)
+            .then(comment => {
+                const newComment = new Comment(comment)
+                this.comments.push(newComment)
+                commentAuthor = " "
+                commentText = " "
+                newComment.renderComment()
+            })
         })
 
         // Delete Button
