@@ -10,4 +10,8 @@ class ApiService {
     getEntries() {
         fetch(this.root + "/entries").then(res => res.json())
     }
+
+    getComments() {
+        fetch(this.root + "/comments").then(res => res.json())
+    }
 }
