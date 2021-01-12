@@ -43,4 +43,23 @@ class ApiAdapter {
     getComments() {
         fetch(this.root + "/comments").then(res => res.json())
     }
+
+    createComment(commentEntry, commentAuthor, commentText) {
+        const comment = {
+            entry_id: commentEntry,
+            author: commentAuthor,
+            text: commentText
+        }
+
+        return fetch(this.root + "/comments", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(comment)
+        })
+        .then(res => (res.json()))
+        .catch(error => console.log("Error: " + error))
+    }
 }
