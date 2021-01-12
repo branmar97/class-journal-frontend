@@ -28,4 +28,18 @@ class Entries {
             newEntry.renderEntry()
         })
     }
+
+    fetchAndLoadEntries() {
+        this.adapter.getEntries()
+        .then(entries => {
+            entries.forEach(entry => this.entries.push(new Entry(entry)))
+        })
+        .then(() => {
+            this.renderEntries()
+        })
+    }
+
+    renderEntries() {
+        this.entries.map(entry => entry.renderEntry)
+    }
 }
