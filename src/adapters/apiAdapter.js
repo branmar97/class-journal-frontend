@@ -1,4 +1,4 @@
-class ApiService {
+class ApiAdapter {
     constructor(root) {
         this.root = root
     }
