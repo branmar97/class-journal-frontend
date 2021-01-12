@@ -1,6 +1,7 @@
 class Entries {
     constructor() {
         this.entries = [];
+        this.adapter = new ApiAdapter()
     }
 
     newEntryBindings() {
@@ -16,5 +17,15 @@ class Entries {
         const entryTitle = this.newEntryTitle.value
         const entryAuthor = this.newEntryAuthor.value 
         const entryText = this.newEntryText.value
+
+        this.adapter.createEntry(entryTitle, entryAuthor, entryText)
+        .then(entry => {
+            const newEntry = new Entry(entry)
+            this.entries.push(newEntry)
+            this.newEntryTitle.value = " "
+            this.newEntryAuthor.value = " "
+            this.newEntryText.value = " "
+            newEntry.renderEntry()
+        })
     }
 }
