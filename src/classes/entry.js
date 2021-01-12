@@ -39,14 +39,19 @@ class Entry {
         newCommentForm.id = `new-${this.id}-comment-form`
         newCommentDiv.appendChild(newCommentForm)
 
+        newCommentEntry = document.createElement("input")
+        newCommentEntry.id = `new-${this.id}-comment-entry`
+        newCommentEntry.type = "hidden"
+        newCommentEntry.value = `${this.id}`
+
         newCommentAuthor = document.createElement("input")
-        newCommentAuthor.id = "new-comment-author"
+        newCommentAuthor.id = `new-${this.id}-comment-author`
         newCommentAuthor.type = "text"
-        newCommentAuthor.setAttribute("placeholder", "Your message here")
+        newCommentAuthor.setAttribute("placeholder", "Your name here")
         newCommentForm.appendChild(newCommentAuthor)
 
         newCommentText = document.createElement("textarea")
-        newCommentText.id = "new-comment-text"
+        newCommentText.id = `new-${this.id}-comment-text`
         newCommentText.type = "text"
         newCommentText.setAttribute("placeholder", "Your message here")
         newCommentForm.appendChild(newCommentText)
