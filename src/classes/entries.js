@@ -10,4 +10,11 @@ class Entries {
         this.newEntryText = document.getElementById("new-entry-text")
         this.newEntryForm.addEventListener('submit', this.createNewEntry.bind(this));
     }
+
+    createNewEntry(event) {
+        event.preventDefault()
+        const entryTitle = this.newEntryTitle.value
+        const entryAuthor = this.newEntryAuthor.value 
+        const entryText = this.newEntryText.value
+    }
 }
