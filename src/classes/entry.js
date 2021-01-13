@@ -88,7 +88,7 @@ class Entry {
 
         const newCommentBtn = document.createElement("button")
         newCommentBtn.id = `new-comment-button-${this.id}`
-        newCommentBtn.innerHTML = "Add Comment"
+        newCommentBtn.innerHTML = "Submit"
         newCommentForm.appendChild(newCommentBtn)
 
         newCommentBtn.addEventListener("click", (event) => {
