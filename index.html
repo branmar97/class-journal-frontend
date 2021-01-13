@@ -13,10 +13,6 @@
             <p class="text-center">A digital time capsule.</p>
         </div>
 
-        <section id="entries-container">
-            <h2>Journal Entries</h2>
-        </section>
-
         <section id="new-entry-container">
             <form id="new-entry-form" class="mb-6">
                 <div class="mb-3">
@@ -42,12 +38,16 @@
                 <button class="btn btn-success" type="submit">Add Entry</button>
             </form>
         </section>
+
+        <section id="entries-container">
+            <h2>Journal Entries</h2>
+        </section>
     </div>
 
+    <script src="src/classes/comments.js"></script>
     <script src="src/classes/entry.js"></script>
     <script src="src/classes/entries.js"></script>
     <script src="src/classes/comment.js"></script>
-    <script src="src/classes/comments.js"></script>
     <script src="src/adapters/apiAdapter.js"></script>
     <script defer src="src/app.js"></script>
 </body>

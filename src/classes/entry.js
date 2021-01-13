@@ -47,7 +47,18 @@ class Entry {
         showCommentsBtn.innerHTML = "Comments"
         showCommentsBtn.addEventListener("click", showHideComments.bind(this))
         entryDiv.appendChild(showCommentsBtn)
+
+        // Delete Button
+        const deleteBtn = document.createElement("button")
+        deleteBtn.setAttribute("id", `delete-button-${this.id}`)
+        deleteBtn.innerHTML = "Delete"
+        entryDiv.appendChild(deleteBtn)
         entryDiv.appendChild(commentsDiv)
+
+        deleteBtn.addEventListener("click", () => {
+            entryDiv.remove()
+            this.adapter.deleteEntry(`${this.id}`)
+        })
 
         function showHideComments() {
             const commentsDiv = document.getElementById(`entry-${this.id}-comment-container`)
@@ -93,29 +104,18 @@ class Entry {
 
         newCommentBtn.addEventListener("click", (event) => {
             event.preventDefault()
-            let commentEntry = this.id
-            let commentAuthor = document.getElementById(`new-${this.id}-comment-author`).value
-            let commentText = document.getElementById(`new-${this.id}-comment-text`).value
+            let commentAuthor = document.getElementById(`new-${this.id}-comment-author`)
+            let commentText = document.getElementById(`new-${this.id}-comment-text`)
 
-            this.adapter.createComment(commentEntry, commentAuthor, commentText)
+
+            this.adapter.createComment(this.id, commentAuthor.value, commentText.value)
             .then(comment => {
                 const newComment = new Comment(comment)
                 this.comments.push(newComment)
-                commentAuthor = " "
-                commentText = " "
+                commentAuthor.value = " "
+                commentText.value = " "
                 newComment.renderComment()
             })
-        })
-
-        // Delete Button
-        const deleteBtn = document.createElement("button")
-        deleteBtn.setAttribute("id", `delete-button-${this.id}`)
-        deleteBtn.innerHTML = "Delete"
-        entryDiv.appendChild(deleteBtn)
-
-        deleteBtn.addEventListener("click", () => {
-            entryDiv.remove()
-            this.adapter.deleteEntry(`${this.id}`)
         })
     }
 }
