@@ -42,6 +42,6 @@ class Entries {
     }
 
     renderEntries() {
-        this.entries.map(entry => entry.renderEntry)
+        this.entries.map(entry => entry.renderEntry())
     }
 }

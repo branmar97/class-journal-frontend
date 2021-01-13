@@ -4,11 +4,11 @@ class ApiAdapter {
     }
 
     getEntry(id) {
-        fetch(this.root + "/entries/" + id).then(res => res.json())
+        return fetch(this.root + "/entries/" + id).then(res => res.json())
     }
 
     getEntries() {
-        fetch(this.root + "/entries").then(res => res.json())
+        return fetch(this.root + "/entries").then(res => res.json())
     }
 
     createEntry(entryTitle, entryAuthor, entryText) {

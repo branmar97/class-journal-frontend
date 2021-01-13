@@ -23,20 +23,21 @@ class Entry {
         entryDiv.appendChild(title)
 
         // Comment Container
-        commentsDiv = document.createElement("div")
+        const commentsDiv = document.createElement("div")
         commentsDiv.className = "entry-comment-container"
-        commentDiv.id = `entry-${this.id}-comment-container`
+        commentsDiv.id = `entry-${this.id}-comment-container`
         commentsDiv.style.display = "none"
 
         // Show/Hide Comments
-        showCommentsBtn = document.createElement("button")
+        const showCommentsBtn = document.createElement("button")
         showCommentsBtn.id = `entry-show-button-${this.id}`
         showCommentsBtn.innerHTML = "Comments"
-        showCommentsBtn.setAttribute("onclick", showHideComments())
+        showCommentsBtn.addEventListener("click", showHideComments.bind(this))
         entryDiv.appendChild(showCommentsBtn)
-        entryDiv.appendChild(commentDiv)
+        entryDiv.appendChild(commentsDiv)
 
-        showHideComments() {
+        function showHideComments() {
+            const commentsDiv = document.getElementById(`entry-${this.id}-comment-container`)
             if (commentsDiv.style.display === "none") {
                 commentsDiv.style.display = "block"
             } else {
@@ -45,44 +46,43 @@ class Entry {
         }
 
         // New Comment Container
-        newCommentDiv = document.createElement("div")
+        const newCommentDiv = document.createElement("div")
         newCommentDiv.className = "new-comment-container"
         newCommentDiv.id = `new-${this.id}-comment-container`
         commentsDiv.appendChild(newCommentDiv)
 
         // New Comment Form
-        newCommentForm = document.createElement("form")
+        const newCommentForm = document.createElement("form")
         newCommentForm.className = "new-comment-form"
         newCommentForm.id = `new-${this.id}-comment-form`
         newCommentDiv.appendChild(newCommentForm)
 
-        newCommentEntry = document.createElement("input")
+        const newCommentEntry = document.createElement("input")
         newCommentEntry.id = `new-${this.id}-comment-entry`
         newCommentEntry.type = "hidden"
         newCommentEntry.value = `${this.id}`
 
-        newCommentAuthor = document.createElement("input")
+        const newCommentAuthor = document.createElement("input")
         newCommentAuthor.id = `new-${this.id}-comment-author`
         newCommentAuthor.type = "text"
         newCommentAuthor.setAttribute("placeholder", "Your name here")
         newCommentForm.appendChild(newCommentAuthor)
 
-        newCommentText = document.createElement("textarea")
+        const newCommentText = document.createElement("textarea")
         newCommentText.id = `new-${this.id}-comment-text`
-        newCommentText.type = "text"
         newCommentText.setAttribute("placeholder", "Your message here")
         newCommentForm.appendChild(newCommentText)
 
-        newCommentBtn = document.createElement("button")
+        const newCommentBtn = document.createElement("button")
         newCommentBtn.id = `new-comment-button-${this.id}`
         newCommentBtn.innerHTML = "Add Comment"
         newCommentForm.appendChild(newCommentBtn)
 
         newCommentBtn.addEventListener("click", (event) => {
             event.preventDefault()
-            commentEntry = document.getElementById(`new-${this.id}-comment-entry`).value
-            commentAuthor = document.getElementById(`new-${this.id}-comment-author`).value
-            commentText = document.getElementById(`new-${this.id}-comment-text`).value
+            let commentEntry = document.getElementById(`new-${this.id}-comment-entry`).value
+            let commentAuthor = document.getElementById(`new-${this.id}-comment-author`).value
+            let commentText = document.getElementById(`new-${this.id}-comment-text`).value
 
             this.adapter.createComment(commentEntry, commentAuthor, commentText)
             .then(comment => {
