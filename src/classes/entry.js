@@ -20,6 +20,7 @@ class Entry {
         // Entry Title
         const title = document.createElement("h3")
         title.className = "entry-title"
+        title.innerText = this.title
         entryDiv.appendChild(title)
 
         // Comment Container
