@@ -41,7 +41,7 @@ class ApiAdapter {
     }
 
     getComments() {
-        fetch(this.root + "/comments").then(res => res.json())
+        return fetch(this.root + "/comments").then(res => res.json())
     }
 
     createComment(commentEntry, commentAuthor, commentText) {
