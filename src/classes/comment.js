@@ -14,5 +14,12 @@ class Comment {
         commentDiv.className = "entry-comment"
         commentDiv.id = `entry-comment-${this.id}`
         entryCommentsDiv.appendChild(commentDiv)
+
+        // Comment Author
+        const commentAuthor = document.createElement("h5")
+        commentAuthor.className = "entry-comment-author"
+        commentAuthor.id = `entry-comment-author-${this.id}`
+        commentAuthor.innerText = this.author
+        commentDiv.appendChild(commentAuthor)
     }
 }
