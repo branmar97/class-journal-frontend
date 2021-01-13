@@ -1,1 +1,2 @@
 new Entries()
+new Comments()

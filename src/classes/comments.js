@@ -14,4 +14,8 @@ class Comments {
             this.renderComments()
         })
     }
+
+    renderComments() {
+        this.comments.map(comment => comment.renderComment())
+    }
 }
