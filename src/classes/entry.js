@@ -4,7 +4,7 @@ class Entry {
         this.title = entry.title
         this.author = entry.author 
         this.text = entry.text
-        this.comments = entry.comments
+        this.comments = []
         this.adapter = new ApiAdapter()
     }
 
@@ -93,7 +93,7 @@ class Entry {
 
         newCommentBtn.addEventListener("click", (event) => {
             event.preventDefault()
-            let commentEntry = document.getElementById(`new-${this.id}-comment-entry`).value
+            let commentEntry = this.id
             let commentAuthor = document.getElementById(`new-${this.id}-comment-author`).value
             let commentText = document.getElementById(`new-${this.id}-comment-text`).value
 
