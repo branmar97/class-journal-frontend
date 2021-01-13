@@ -21,5 +21,12 @@ class Comment {
         commentAuthor.id = `entry-comment-author-${this.id}`
         commentAuthor.innerText = this.author
         commentDiv.appendChild(commentAuthor)
+
+        // Comment Text 
+        const commentText = document.createElement("p")
+        commentText.className = "entry-comment-text"
+        commentText.id = `entry-comment-text-${this.id}`
+        commentText.innerText = this.text
+        commentDiv.appendChild(commentText)
     }
 }
