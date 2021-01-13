@@ -26,8 +26,14 @@ class Entry {
         // Entry Author
         const author = document.createElement("p")
         author.className = "entry-author"
-        author.innerText = this.author
+        author.innerHTML = `<i>${this.author}</i>`
         entryDiv.appendChild(author)
+
+        // Entry Text
+        const text = document.createElement("p")
+        text.className = "entry-text"
+        text.innerText = this.text
+        entryDiv.appendChild(text)
 
         // Comment Container
         const commentsDiv = document.createElement("div")
