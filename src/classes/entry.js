@@ -83,6 +83,12 @@ class Entry {
         newCommentForm.id = `new-${this.id}-comment-form`
         newCommentDiv.appendChild(newCommentForm)
 
+        const newCommentHeader = document.createElement("h4")
+        newCommentHeader.id = `new-${this.id}-comment-header`
+        newCommentHeader.className = "mb-3"
+        newCommentHeader.innerText = "Add Comment"
+        newCommentForm.appendChild(newCommentHeader)
+
         const newCommentEntry = document.createElement("input")
         newCommentEntry.id = `new-${this.id}-comment-entry`
         newCommentEntry.type = "hidden"
