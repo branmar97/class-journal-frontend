@@ -13,7 +13,7 @@ class Entry {
 
         // Build Entry Div
         const entryDiv = document.createElement("div")
-        entryDiv.className = "entry-container"
+        entryDiv.className = "entry-container mt-5"
         entryDiv.id = `entry-${this.id}-container`
         entriesContainer.appendChild(entryDiv)
 
@@ -37,13 +37,14 @@ class Entry {
 
         // Comment Container
         const commentsDiv = document.createElement("div")
-        commentsDiv.className = "entry-comment-container"
+        commentsDiv.className = "entry-comment-container mt-5 mb-5"
         commentsDiv.id = `entry-${this.id}-comment-container`
         commentsDiv.style.display = "none"
 
         // Show/Hide Comments
         const showCommentsBtn = document.createElement("button")
         showCommentsBtn.id = `entry-show-button-${this.id}`
+        showCommentsBtn.className = "btn btn-secondary me-1"
         showCommentsBtn.innerHTML = "Comments"
         showCommentsBtn.addEventListener("click", showHideComments.bind(this))
         entryDiv.appendChild(showCommentsBtn)
@@ -51,6 +52,7 @@ class Entry {
         // Delete Button
         const deleteBtn = document.createElement("button")
         deleteBtn.setAttribute("id", `delete-button-${this.id}`)
+        deleteBtn.className = "btn btn-danger me-1"
         deleteBtn.innerHTML = "Delete"
         entryDiv.appendChild(deleteBtn)
         entryDiv.appendChild(commentsDiv)
@@ -77,7 +79,7 @@ class Entry {
 
         // New Comment Form
         const newCommentForm = document.createElement("form")
-        newCommentForm.className = "new-comment-form"
+        newCommentForm.className = "new-comment-form mb-5"
         newCommentForm.id = `new-${this.id}-comment-form`
         newCommentDiv.appendChild(newCommentForm)
 
@@ -88,17 +90,20 @@ class Entry {
 
         const newCommentAuthor = document.createElement("input")
         newCommentAuthor.id = `new-${this.id}-comment-author`
+        newCommentAuthor.className = "form-control mb-3"
         newCommentAuthor.type = "text"
         newCommentAuthor.setAttribute("placeholder", "Your name here")
         newCommentForm.appendChild(newCommentAuthor)
 
         const newCommentText = document.createElement("textarea")
         newCommentText.id = `new-${this.id}-comment-text`
+        newCommentText.className = "form-control mb-3"
         newCommentText.setAttribute("placeholder", "Your message here")
         newCommentForm.appendChild(newCommentText)
 
         const newCommentBtn = document.createElement("button")
         newCommentBtn.id = `new-comment-button-${this.id}`
+        newCommentBtn.className = "btn btn-secondary"
         newCommentBtn.innerHTML = "Submit"
         newCommentForm.appendChild(newCommentBtn)
 
