@@ -3,7 +3,6 @@ class Entries {
         this.entries = [];
         this.adapter = new ApiAdapter()
         this.newEntryBindings()
-        this.fetchAndLoadEntries()
     }
 
     newEntryBindings() {
@@ -32,7 +31,7 @@ class Entries {
     }
 
     fetchAndLoadEntries() {
-        this.adapter.getEntries()
+        return this.adapter.getEntries()
         .then(entries => {
             entries.forEach(entry => this.entries.push(new Entry(entry)))
         })

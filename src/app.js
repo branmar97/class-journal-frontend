@@ -1,2 +1,5 @@
-new Entries()
-new Comments()
+document.addEventListener("DOMContentLoaded", function() {
+    new Entries().fetchAndLoadEntries().then(() => {
+        new Comments()
+    })
+})
