@@ -13,7 +13,7 @@ class Entry {
 
         // Build Entry Div
         const entryDiv = document.createElement("div")
-        entryDiv.className = "entry-container mt-5"
+        entryDiv.className = "entry-container mt-3 mb-5"
         entryDiv.id = `entry-${this.id}-container`
         entriesContainer.appendChild(entryDiv)
 
@@ -71,17 +71,17 @@ class Entry {
             }
         }
 
-        // New Comment Container
-        const newCommentDiv = document.createElement("div")
-        newCommentDiv.className = "new-comment-container"
-        newCommentDiv.id = `new-${this.id}-comment-container`
-        commentsDiv.appendChild(newCommentDiv)
+        // New Comment List
+        const commentsUl = document.createElement("ul")
+        commentsUl.className = "new-comment-container"
+        commentsUl.id = `new-${this.id}-comment-ul`
+        commentsDiv.appendChild(commentsUl)
 
         // New Comment Form
         const newCommentForm = document.createElement("form")
         newCommentForm.className = "new-comment-form mb-5"
         newCommentForm.id = `new-${this.id}-comment-form`
-        newCommentDiv.appendChild(newCommentForm)
+        commentsDiv.appendChild(newCommentForm)
 
         const newCommentHeader = document.createElement("h4")
         newCommentHeader.id = `new-${this.id}-comment-header`
@@ -132,10 +132,14 @@ class Entry {
         // Comment Count 
         const commentCount = document.createElement("h5")
         commentCount.id = `entry-${this.id}-comment-count`
-        commentCount.className = "mt-5"
+        commentCount.className = "mt-5 mb-3"
         console.log(this.comments)
-        commentCount.innerText = `${commentsDiv.childElementCount - 1} Comments`
-        newCommentForm.appendChild(commentCount)
-
+        if (commentsUl.childElementCount === 1) {
+            commentCount.innerText = `${commentsUl.childElementCount} Comment`
+        } else {
+            commentCount.innerText = `${commentsUl.childElementCount} Comments`
+        }
+        
+        commentsDiv.prepend(commentCount)
     }
 }

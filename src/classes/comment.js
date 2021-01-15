@@ -7,31 +7,35 @@ class Comment {
     }
 
     renderComment() {
-        const entryCommentsDiv = document.getElementById(`entry-${this.entryId}-comment-container`)
+        const entryCommentsUl = document.getElementById(`new-${this.entryId}-comment-ul`) // change to ul
         const entryCommentsCount = document.getElementById(`entry-${this.entryId}-comment-count`)
-        // Comment Container
-        const commentDiv = document.createElement("div")
-        commentDiv.className = "entry-comment"
-        commentDiv.id = `entry-comment-${this.id}`
-        entryCommentsDiv.appendChild(commentDiv)
+        // Comment Li
+        const commentLi = document.createElement("li")
+        commentLi.className = "entry-comment"
+        commentLi.id = `entry-comment-${this.id}`
+        entryCommentsUl.appendChild(commentLi)
 
         // Comment Author
         const commentAuthor = document.createElement("h5")
         commentAuthor.className = "entry-comment-author"
         commentAuthor.id = `entry-comment-author-${this.id}`
         commentAuthor.innerText = this.author
-        commentDiv.appendChild(commentAuthor)
+        commentLi.appendChild(commentAuthor)
 
         // Comment Text 
         const commentText = document.createElement("p")
         commentText.className = "entry-comment-text"
         commentText.id = `entry-comment-text-${this.id}`
         commentText.innerText = this.text
-        commentDiv.appendChild(commentText)
+        commentLi.appendChild(commentText)
 
         // Update Count
         const textArray = entryCommentsCount.innerText.split(" ")
         const updatedCount = parseInt(textArray[0]) + 1
-        entryCommentsCount.innerText = `${updatedCount} Comments`
+        if (updatedCount === 1) {
+            entryCommentsCount.innerText = `${updatedCount} Comment`
+        } else {
+            entryCommentsCount.innerText = `${updatedCount} Comments`
+        }
     }
 }
