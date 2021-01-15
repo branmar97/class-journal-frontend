@@ -13,7 +13,7 @@ class Comment {
         const commentLi = document.createElement("li")
         commentLi.className = "entry-comment"
         commentLi.id = `entry-comment-${this.id}`
-        entryCommentsUl.appendChild(commentLi)
+        entryCommentsUl.prepend(commentLi)
 
         // Comment Author
         const commentAuthor = document.createElement("h5")
