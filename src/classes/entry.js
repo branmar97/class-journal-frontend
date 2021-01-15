@@ -73,7 +73,7 @@ class Entry {
 
         // New Comment List
         const commentsUl = document.createElement("ul")
-        commentsUl.className = "new-comment-container"
+        commentsUl.className = "new-comment-container list-unstyled"
         commentsUl.id = `new-${this.id}-comment-ul`
         commentsDiv.appendChild(commentsUl)
 
