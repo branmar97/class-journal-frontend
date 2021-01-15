@@ -8,7 +8,7 @@ class Comment {
 
     renderComment() {
         const entryCommentsDiv = document.getElementById(`entry-${this.entryId}-comment-container`)
-
+        const entryCommentsCount = document.getElementById(`entry-${this.entryId}-comment-count`)
         // Comment Container
         const commentDiv = document.createElement("div")
         commentDiv.className = "entry-comment"
@@ -28,5 +28,10 @@ class Comment {
         commentText.id = `entry-comment-text-${this.id}`
         commentText.innerText = this.text
         commentDiv.appendChild(commentText)
+
+        // Update Count
+        const textArray = entryCommentsCount.innerText.split(" ")
+        const updatedCount = parseInt(textArray[0]) + 1
+        entryCommentsCount.innerText = `${updatedCount} Comments`
     }
 }

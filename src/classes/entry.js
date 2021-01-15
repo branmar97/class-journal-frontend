@@ -128,5 +128,14 @@ class Entry {
                 newComment.renderComment()
             })
         })
+
+        // Comment Count 
+        const commentCount = document.createElement("h5")
+        commentCount.id = `entry-${this.id}-comment-count`
+        commentCount.className = "mt-5"
+        console.log(this.comments)
+        commentCount.innerText = `${commentsDiv.childElementCount - 1} Comments`
+        newCommentForm.appendChild(commentCount)
+
     }
 }
