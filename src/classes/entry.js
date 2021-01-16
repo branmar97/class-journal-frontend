@@ -109,7 +109,7 @@ class Entry {
 
         const newCommentBtn = document.createElement("button")
         newCommentBtn.id = `new-comment-button-${this.id}`
-        newCommentBtn.className = "btn btn-secondary"
+        newCommentBtn.className = "btn btn-success"
         newCommentBtn.innerHTML = "Submit"
         newCommentForm.appendChild(newCommentBtn)
 
@@ -133,7 +133,6 @@ class Entry {
         const commentCount = document.createElement("h5")
         commentCount.id = `entry-${this.id}-comment-count`
         commentCount.className = "mt-5 mb-3"
-        console.log(this.comments)
         if (commentsUl.childElementCount === 1) {
             commentCount.innerText = `${commentsUl.childElementCount} Comment`
         } else {
