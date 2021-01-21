@@ -5,7 +5,7 @@ class Entry {
         this.author = entry.author 
         this.text = entry.text
         this.comments = []
-        this.adapter = new ApiAdapter()
+        // this.adapter = new ApiAdapter()
     }
 
     renderEntry() {
@@ -59,7 +59,7 @@ class Entry {
 
         deleteBtn.addEventListener("click", () => {
             entryDiv.remove()
-            this.adapter.deleteEntry(`${this.id}`)
+            ApiAdapter.deleteEntry(`${this.id}`)
         })
 
         function showHideComments() {
@@ -119,7 +119,7 @@ class Entry {
             let commentText = document.getElementById(`new-${this.id}-comment-text`)
 
 
-            this.adapter.createComment(this.id, commentAuthor.value, commentText.value)
+            ApiAdapter.createComment(this.id, commentAuthor.value, commentText.value)
             .then(comment => {
                 const newComment = new Comment(comment)
                 this.comments.push(newComment)

@@ -1,7 +1,7 @@
 class Entries {
     constructor() {
         this.entries = [];
-        this.adapter = new ApiAdapter()
+        // this.adapter = new ApiAdapter()
         this.newEntryBindings()
     }
 
@@ -19,7 +19,7 @@ class Entries {
         const entryAuthor = this.newEntryAuthor.value 
         const entryText = this.newEntryText.value
 
-        this.adapter.createEntry(entryTitle, entryAuthor, entryText)
+        ApiAdapter.createEntry(entryTitle, entryAuthor, entryText)
         .then(entry => {
             const newEntry = new Entry(entry)
             this.entries.push(newEntry)
@@ -31,7 +31,7 @@ class Entries {
     }
 
     fetchAndLoadEntries() {
-        return this.adapter.getEntries()
+        return ApiAdapter.getEntries()
         .then(entries => {
             entries.forEach(entry => this.entries.push(new Entry(entry)))
         })

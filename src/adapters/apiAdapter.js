@@ -1,24 +1,20 @@
 class ApiAdapter {
-    constructor() {
-        this.root = "http://localhost:3000"
+    static getEntry(id) {
+        return fetch(root + "/entries/" + id).then(res => res.json())
     }
 
-    getEntry(id) {
-        return fetch(this.root + "/entries/" + id).then(res => res.json())
+    static getEntries() {
+        return fetch(root + "/entries").then(res => res.json())
     }
 
-    getEntries() {
-        return fetch(this.root + "/entries").then(res => res.json())
-    }
-
-    createEntry(entryTitle, entryAuthor, entryText) {
+    static createEntry(entryTitle, entryAuthor, entryText) {
         const entry = {
             title: entryTitle,
             author: entryAuthor,
             text: entryText
         }
 
-        return fetch(this.root + "/entries", {
+        return fetch(root + "/entries", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -30,8 +26,8 @@ class ApiAdapter {
         .catch(error => console.log("Error: " + error))
     }
 
-    deleteEntry(id) {
-        return fetch(this.root + `/entries/${id}`, {
+    static deleteEntry(id) {
+        return fetch(root + `/entries/${id}`, {
             method: 'DELETE',
             headers: {
                 "Content-Type": "application/json",
@@ -40,18 +36,18 @@ class ApiAdapter {
         })
     }
 
-    getComments() {
-        return fetch(this.root + "/comments").then(res => res.json())
+    static getComments() {
+        return fetch(root + "/comments").then(res => res.json())
     }
 
-    createComment(commentEntry, commentAuthor, commentText) {
+    static createComment(commentEntry, commentAuthor, commentText) {
         const comment = {
             entry_id: commentEntry,
             author: commentAuthor,
             text: commentText
         }
 
-        return fetch(this.root + "/comments", {
+        return fetch(root + "/comments", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

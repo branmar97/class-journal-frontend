@@ -3,3 +3,5 @@ document.addEventListener("DOMContentLoaded", function() {
         new Comments()
     })
 })
+
+const root = "http://localhost:3000"
