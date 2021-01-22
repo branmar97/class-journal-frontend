@@ -7,7 +7,7 @@ class Comment {
     }
 
     renderComment() {
-        const entryCommentsUl = document.getElementById(`new-${this.entryId}-comment-ul`) // change to ul
+        const entryCommentsUl = document.getElementById(`new-${this.entryId}-comment-ul`)
         const entryCommentsCount = document.getElementById(`entry-${this.entryId}-comment-count`)
         // Comment Li
         const commentLi = document.createElement("li")

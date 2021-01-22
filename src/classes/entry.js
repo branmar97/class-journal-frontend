@@ -5,7 +5,6 @@ class Entry {
         this.author = entry.author 
         this.text = entry.text
         this.comments = []
-        // this.adapter = new ApiAdapter()
     }
 
     renderEntry() {
