@@ -121,6 +121,7 @@ class Entry {
             ApiAdapter.createComment(this.id, commentAuthor.value, commentText.value)
             .then(comment => {
                 const newComment = new Comment(comment)
+                console.log(this)
                 this.comments.push(newComment)
                 commentAuthor.value = " "
                 commentText.value = " "
