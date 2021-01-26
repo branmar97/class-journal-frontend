@@ -4,7 +4,6 @@ class Entry {
         this.title = entry.title
         this.author = entry.author 
         this.text = entry.text
-        this.comments = []
     }
 
     renderEntry() {
@@ -121,8 +120,6 @@ class Entry {
             ApiAdapter.createComment(this.id, commentAuthor.value, commentText.value)
             .then(comment => {
                 const newComment = new Comment(comment)
-                console.log(this)
-                this.comments.push(newComment)
                 commentAuthor.value = " "
                 commentText.value = " "
                 newComment.renderComment()

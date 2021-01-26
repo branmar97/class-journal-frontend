@@ -10,10 +10,6 @@ class Comments {
             comments.forEach(comment => this.comments.push(new Comment(comment)))
         })
         .then(() => {
-            this.forEach(comment => {
-                const entry = Entry.find(comment.entryId)
-                entry.comments.push(comment)
-            })
             this.renderComments()
         })
     }

@@ -4,4 +4,4 @@ document.addEventListener("DOMContentLoaded", function() {
     })
 })
 
-const root = "http://localhost:3000"
+const root = "https://boiling-caverns-05103.herokuapp.com"
