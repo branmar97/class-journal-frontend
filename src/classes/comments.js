@@ -7,7 +7,11 @@ class Comments {
     fetchAndLoadComments() {
         ApiAdapter.getComments()
         .then(comments => {
-            comments.forEach(comment => this.comments.push(new Comment(comment)))
+            comments.forEach(comment => {
+                const newComment = new Comment(comment)
+                Entry.findById(newComment.entryId).comments.push(newComment)
+                this.comments.push(newComment)
+            })
         })
         .then(() => {
             this.renderComments()

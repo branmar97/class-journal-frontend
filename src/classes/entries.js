@@ -1,6 +1,7 @@
 class Entries {
     constructor() {
         this.entries = [];
+        this.constructor.entriesInstance = this
         this.newEntryBindings()
     }
 

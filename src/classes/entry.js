@@ -4,6 +4,11 @@ class Entry {
         this.title = entry.title
         this.author = entry.author 
         this.text = entry.text
+        this.comments = []
+    }
+
+    static findById(id) {
+        return Entries.entriesInstance.entries.find(entry => entry.id === id)
     }
 
     renderEntry() {
@@ -122,6 +127,7 @@ class Entry {
                 const newComment = new Comment(comment)
                 commentAuthor.value = " "
                 commentText.value = " "
+                this.comments.push(newComment)
                 newComment.renderComment()
             })
         })
@@ -130,12 +136,7 @@ class Entry {
         const commentCount = document.createElement("h5")
         commentCount.id = `entry-${this.id}-comment-count`
         commentCount.className = "mt-5 mb-3"
-        if (commentsUl.childElementCount === 1) {
-            commentCount.innerText = `${commentsUl.childElementCount} Comment`
-        } else {
-            commentCount.innerText = `${commentsUl.childElementCount} Comments`
-        }
-        
+        commentCount.innerText = `(0) Comments`
         commentsDiv.prepend(commentCount)
     }
 }

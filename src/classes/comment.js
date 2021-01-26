@@ -6,6 +6,10 @@ class Comment {
         this.entryId = comment.entry_id
     }
 
+    findEntryById() {
+        return Entry.findById(this.entryId)
+    }
+
     renderComment() {
         const entryCommentsUl = document.getElementById(`new-${this.entryId}-comment-ul`)
         const entryCommentsCount = document.getElementById(`entry-${this.entryId}-comment-count`)
@@ -30,12 +34,11 @@ class Comment {
         commentLi.appendChild(commentText)
 
         // Update Count
-        const textArray = entryCommentsCount.innerText.split(" ")
-        const updatedCount = parseInt(textArray[0]) + 1
+        const updatedCount = this.findEntryById().comments.length
         if (updatedCount === 1) {
-            entryCommentsCount.innerText = `${updatedCount} Comment`
+            entryCommentsCount.innerText = `(${updatedCount}) Comment`
         } else {
-            entryCommentsCount.innerText = `${updatedCount} Comments`
+            entryCommentsCount.innerText = `(${updatedCount}) Comments`
         }
     }
 }
